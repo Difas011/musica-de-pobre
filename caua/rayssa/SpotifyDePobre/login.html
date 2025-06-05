@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Login - Vibe Tune</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: url('https://wallpaper.dog/large/20560981.jpg') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-container {
+      background: rgba(25, 25, 25, 0.97);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #1aff6480;
+      padding: 2.5rem 2rem 2rem 2rem;
+      max-width: 340px;
+      width: 100%;
+      text-align: center;
+    }
+    .login-title {
+      font-size: 2rem;
+      color: #1aff64;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-shadow: 0 0 8px #1aff64;
+    }
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .login-input {
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: #232323;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: box-shadow 0.2s;
+      box-shadow: 0 0 0 0 #1aff64;
+    }
+    .login-input:focus {
+      box-shadow: 0 0 0 2px #1aff64;
+    }
+    .login-btn {
+      background: linear-gradient(90deg, #1aff64 60%, #fff 100%);
+      color: #121212;
+      border: none;
+      border-radius: 32px;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 16px #1aff6480;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+    .login-btn:hover {
+      background: #fff;
+      color: #1db954;
+      transform: scale(1.04);
+    }
+    .login-link {
+      color: #1aff64;
+      text-decoration: underline;
+      font-size: 0.98rem;
+      margin-top: 1.2rem;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .login-link:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-title">Vibe Tune</div>
+    <form class="login-form" autocomplete="off" id="loginForm">
+      <input class="login-input" type="text" placeholder="Usuário ou e-mail" required id="userInput">
+      <input class="login-input" type="password" placeholder="Senha" required id="passInput">
+      <button class="login-btn" type="submit">Entrar</button>
+    </form>
+    <a href="#" class="login-link">Esqueceu a senha?</a>
+  </div>
+  <script>
+    // Foca automaticamente no campo senha ao preencher usuário e pressionar Enter
+    const userInput = document.getElementById('userInput');
+    const passInput = document.getElementById('passInput');
+    const loginForm = document.getElementById('loginForm');
+
+    userInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && userInput.value.trim() !== '') {
+        e.preventDefault();
+        passInput.focus();
+      }
+    });
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Aqui você pode validar o login se quiser
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

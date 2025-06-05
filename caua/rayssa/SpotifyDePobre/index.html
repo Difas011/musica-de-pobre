@@ -1,0 +1,2667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vibe Tune - Sua plataforma de música favorita com playlists personalizadas, descoberta musical e streaming de alta qualidade.">
+    <meta name="keywords" content="música, streaming, playlist, spotify, áudio, artistas, álbuns, rock, pop, eletrônica, hip hop, jazz, clássica">
+    <meta name="author" content="Vibe Tune">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vibe-tune.com/">
+    <meta property="og:title" content="Vibe Tune - Streaming de Música Premium">
+    <meta property="og:description" content="Descubra, ouça e compartilhe música com nossa plataforma de streaming premium. Milhões de músicas, podcasts e playlists personalizadas.">
+    <meta property="og:image" content="./img/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vibe-tune.com/">
+    <meta property="twitter:title" content="Vibe Tune - Streaming de Música Premium">
+    <meta property="twitter:description" content="Descubra, ouça e compartilhe música com nossa plataforma de streaming premium.">
+    <meta property="twitter:image" content="./img/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/animations.css" rel="stylesheet" media="screen">
+    <link href="css/responsive.css" rel="stylesheet" media="screen">
+
+    <!-- Title -->
+    <title>Vibe Tune - Streaming de Música Premium</title>
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1db954">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Vibe Tune",
+        "description": "Plataforma premium de streaming de música com milhões de faixas, podcasts e playlists personalizadas",
+        "url": "https://vibe-tune.com",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "50000"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #1db954;
+            --secondary-color: #1ed760;
+            --background-dark: #121212;
+            --background-darker: #000000;
+            --background-light: #181818;
+            --background-lighter: #282828;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --text-muted: #6a6a6a;
+            --border-color: #404040;
+            --hover-color: #1a1a1a;
+            --accent-blue: #00b0f0;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-orange: #f59e0b;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            --gradient-blue: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            --gradient-orange: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://wallpaper.dog/large/20560981.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.1) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(139, 92, 246, 0.1) 100%);
+            z-index: -1;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .sr-only:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            z-index: 1000;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            background: var(--background-lighter);
+            border: none;
+            border-radius: var(--border-radius-md);
+            padding: 0.75rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .mobile-menu-toggle:hover {
+            background: var(--hover-color);
+            transform: scale(1.05);
+        }
+
+        /* Container */
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100vh;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            padding-bottom: 100px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--background-light);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) transparent;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .sidebar-logo {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sidebar-logo img {
+            max-width: 120px;
+            height: auto;
+        }
+
+        .sidebar-logo h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 0.5rem;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav a,
+        .playlist-action {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            transition: var(--transition-fast);
+            font-weight: 500;
+            border: none;
+            background: none;
+            width: 100%;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-nav a:hover,
+        .playlist-action:hover {
+            color: var(--text-primary);
+            background: var(--hover-color);
+            transform: translateX(4px);
+        }
+
+        .sidebar-nav a.active {
+            color: var(--text-primary);
+            background: var(--background-lighter);
+            font-weight: 600;
+        }
+
+        .sidebar-nav .material-icons {
+            font-size: 1.25rem;
+        }
+
+        .sidebar-playlists {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .playlist-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .playlist-item {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            transition: var(--transition-fast);
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .playlist-item:hover {
+            color: var(--text-primary);
+            background: var(--hover-color);
+            transform: translateX(4px);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--background-light);
+            border-radius: var(--border-radius-lg);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) transparent;
+        }
+
+        .main-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .main-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .main-content::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        /* Content Header */
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .filter-nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: var(--background-lighter);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: var(--hover-color);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 20px;
+            background: var(--background-lighter);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .user-profile:hover {
+            background: var(--hover-color);
+            transform: scale(1.02);
+        }
+
+        .profile-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .profile-dropdown {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 50%;
+            transition: var(--transition-fast);
+        }
+
+        .profile-dropdown:hover {
+            background: var(--hover-color);
+            color: var(--text-primary);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .section-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .sort-dropdown {
+            background: var(--background-lighter);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .sort-dropdown:hover {
+            background: var(--hover-color);
+            border-color: var(--primary-color);
+        }
+
+        .sort-dropdown:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--background-lighter);
+            border-radius: var(--border-radius-lg);
+            padding: 1rem;
+            transition: var(--transition-normal);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+
+        .card:hover {
+            background: var(--hover-color);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .card-image-container {
+            position: relative;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--border-radius-lg);
+            transition: var(--transition-normal);
+        }
+
+        .card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: var(--transition-normal);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card:hover .play-button {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .play-button:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .play-button .material-icons {
+            font-size: 1.5rem;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .card-description {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Liked Songs Special Card */
+        .liked-songs-cover {
+            width: 100%;
+            height: 200px;
+            border-radius: var(--border-radius-lg);
+            background: linear-gradient(135deg, #450af5 0%, #c4efd9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .liked-songs-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .liked-songs-cover .material-icons {
+            font-size: 4rem;
+            color: #fff;
+            opacity: 0.9;
+            z-index: 1;
+        }
+
+        /* Horizontal Scroll */
+        .horizontal-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) transparent;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .horizontal-scroll .card {
+            flex: 0 0 200px;
+        }
+
+        /* Player Bar */
+        .player-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--background-lighter);
+            border-top: 1px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            gap: 1rem;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        .track-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 0;
+        }
+
+        .track-image {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--border-radius-md);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .track-details {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .track-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .track-artist {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .like-button {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition-fast);
+            flex-shrink: 0;
+        }
+
+        .like-button:hover {
+            color: var(--primary-color);
+            background: var(--hover-color);
+        }
+
+        .like-button[aria-pressed="true"] {
+            color: var(--primary-color);
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn:hover {
+            color: var(--text-primary);
+            background: var(--hover-color);
+            transform: scale(1.1);
+        }
+
+        .play-btn {
+            background: var(--primary-color);
+            color: white;
+            width: 48px;
+            height: 48px;
+        }
+
+        .play-btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .control-btn[aria-pressed="true"] {
+            color: var(--primary-color);
+        }
+
+        .progress-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0.5rem 0;
+            grid-column: 1 / -1;
+        }
+
+        .time-current,
+        .time-total {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-variant-numeric: tabular-nums;
+            min-width: 40px;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 4px;
+            background: var(--border-color);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition-fast);
+        }
+
+        .progress-bar:hover {
+            height: 6px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0;
+            transition: var(--transition-fast);
+        }
+
+        .progress-bar:hover .progress-fill::after {
+            opacity: 1;
+        }
+
+        .volume-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            justify-self: end;
+        }
+
+        .volume-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition-fast);
+        }
+
+        .volume-btn:hover {
+            color: var(--text-primary);
+            background: var(--hover-color);
+        }
+
+        .volume-bar {
+            width: 100px;
+            height: 4px;
+            background: var(--border-color);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition-fast);
+        }
+
+        .volume-bar:hover {
+            height: 6px;
+        }
+
+        .volume-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .volume-fill::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0;
+            transition: var(--transition-fast);
+        }
+
+        .volume-bar:hover .volume-fill::after {
+            opacity: 1;
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border-color);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Genre Cards */
+        .genre-card {
+            background: var(--background-lighter);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            min-height: 120px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .genre-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.8;
+            transition: var(--transition-normal);
+        }
+
+        .genre-card.rock::before {
+            background: var(--gradient-orange);
+        }
+
+        .genre-card.pop::before {
+            background: var(--gradient-purple);
+        }
+
+        .genre-card.electronic::before {
+            background: var(--gradient-blue);
+        }
+
+        .genre-card.jazz::before {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+
+        .genre-card.classical::before {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+
+        .genre-card.hip-hop::before {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .genre-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .genre-card:hover::before {
+            opacity: 0.9;
+        }
+
+        .genre-card h3 {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Artist Cards */
+        .artist-card {
+            text-align: center;
+        }
+
+        .artist-card .card-image {
+            border-radius: 50%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            margin: 2rem;
+            border-radius: var(--border-radius-xl);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .featured-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .featured-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .featured-button {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .featured-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem;
+        }
+
+        .stat-card {
+            background: var(--background-lighter);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-normal);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 240px 1fr;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 1rem;
+            }
+
+            .player-bar {
+                grid-template-columns: 1fr 1fr 1fr;
+                padding: 0.75rem 1rem;
+            }
+
+            .volume-controls {
+                display: none;
+            }
+
+            .progress-section {
+                grid-column: 1 / -1;
+                order: -1;
+                margin: 0 0 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                padding: 0;
+                padding-top: 60px;
+                padding-bottom: 120px;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                width: 280px;
+                height: 100vh;
+                z-index: 999;
+                transition: var(--transition-normal);
+                border-radius: 0;
+            }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+            .main-content {
+                border-radius: 0;
+            }
+
+            .content-header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+
+            .filter-nav {
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+
+            .filter-btn {
+                flex-shrink: 0;
+            }
+
+            .user-profile {
+                align-self: flex-end;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .player-bar {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+
+            .track-info {
+                order: 2;
+            }
+
+            .player-controls {
+                order: 1;
+                margin-bottom: 0.5rem;
+            }
+
+            .progress-section {
+                order: 3;
+                margin: 0.5rem 0 0 0;
+            }
+
+            .featured-section {
+                margin: 1rem;
+                padding: 2rem 1rem;
+            }
+
+            .featured-title {
+                font-size: 2rem;
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                margin: 1rem;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .card {
+                padding: 0.75rem;
+            }
+
+            .card-image {
+                height: 120px;
+            }
+
+            .liked-songs-cover {
+                height: 120px;
+            }
+
+            .liked-songs-cover .material-icons {
+                font-size: 3rem;
+            }
+
+            .play-button {
+                width: 40px;
+                height: 40px;
+            }
+
+            .play-button .material-icons {
+                font-size: 1.25rem;
+            }
+
+            .featured-title {
+                font-size: 1.5rem;
+            }
+
+            .featured-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Focus Styles */
+        *:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        button:focus,
+        a:focus {
+            outline-offset: 4px;
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-secondary: #cccccc;
+                --border-color: #666666;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only">Pular para o conteúdo principal</a>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span class="material-icons">menu</span>
+    </button>
+
+    <!-- Main Layout Container -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" role="navigation" aria-label="Navegação principal">
+            <div class="sidebar-logo">
+                <h1>Vibe Tune</h1>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Premium Music Streaming</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu principal">
+                <ul role="list">
+                    <li>
+                        <a href="#home" aria-current="page" class="active">
+                            <span class="material-icons" aria-hidden="true">home</span>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#search">
+                            <span class="material-icons" aria-hidden="true">search</span>
+                            <span>Buscar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#library">
+                            <span class="material-icons" aria-hidden="true">library_music</span>
+                            <span>Sua Biblioteca</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#radio">
+                            <span class="material-icons" aria-hidden="true">radio</span>
+                            <span>Rádio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#podcasts">
+                            <span class="material-icons" aria-hidden="true">podcasts</span>
+                            <span>Podcasts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#discover">
+                            <span class="material-icons" aria-hidden="true">explore</span>
+                            <span>Descobrir</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <section class="sidebar-playlists" aria-labelledby="playlists-heading">
+                <h2 id="playlists-heading" class="playlist-title">Playlists</h2>
+                <ul role="list">
+                    <li>
+                        <button type="button" class="playlist-action">
+                            <span class="material-icons" aria-hidden="true">add</span>
+                            <span>Criar Playlist</span>
+                        </button>
+                    </li>
+                    <li>
+                        <a href="#liked-songs">
+                            <span class="material-icons" aria-hidden="true">favorite</span>
+                            <span>Músicas Curtidas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <button type="button" class="playlist-action">
+                            <span class="material-icons" aria-hidden="true">download</span>
+                            <span>Downloads</span>
+                        </button>
+                    </li>
+                </ul>
+
+                <h3 class="playlist-title" style="margin-top: 1.5rem;">Suas Playlists</h3>
+                <ul role="list">
+                    <li><a href="#playlist-1" class="playlist-item">🔥 RapCaviar</a></li>
+                    <li><a href="#playlist-2" class="playlist-item">🎵 Music Mix #1</a></li>
+                    <li><a href="#playlist-3" class="playlist-item">🎶 Music Mix #2</a></li>
+                    <li><a href="#playlist-4" class="playlist-item">😌 Chill Vibes</a></li>
+                    <li><a href="#playlist-5" class="playlist-item">💪 Workout Hits</a></li>
+                    <li><a href="#playlist-6" class="playlist-item">🌙 Night Drive</a></li>
+                    <li><a href="#playlist-7" class="playlist-item">☕ Coffee Shop</a></li>
+                    <li><a href="#playlist-8" class="playlist-item">🎸 Rock Classics</a></li>
+                    <li><a href="#playlist-9" class="playlist-item">💫 Pop Hits 2024</a></li>
+                    <li><a href="#playlist-10" class="playlist-item">🎹 Piano Covers</a></li>
+                    <li><a href="#playlist-11" class="playlist-item">🌊 Lo-Fi Beats</a></li>
+                    <li><a href="#playlist-12" class="playlist-item">🎺 Jazz Essentials</a></li>
+                    <li><a href="#playlist-13" class="playlist-item">🎤 Karaoke Favorites</a></li>
+                    <li><a href="#playlist-14" class="playlist-item">🏃‍♂️ Running Mix</a></li>
+                    <li><a href="#playlist-15" class="playlist-item">🎭 Musical Theatre</a></li>
+                </ul>
+
+                <h3 class="playlist-title" style="margin-top: 1.5rem;">Playlists Seguidas</h3>
+                <ul role="list">
+                    <li><a href="#followed-1" class="playlist-item">Today's Top Hits</a></li>
+                    <li><a href="#followed-2" class="playlist-item">Global Top 50</a></li>
+                    <li><a href="#followed-3" class="playlist-item">Viral 50 - Brasil</a></li>
+                    <li><a href="#followed-4" class="playlist-item">New Music Friday</a></li>
+                    <li><a href="#followed-5" class="playlist-item">Discover Weekly</a></li>
+                    <li><a href="#followed-6" class="playlist-item">Release Radar</a></li>
+                    <li><a href="#followed-7" class="playlist-item">Indie Mix</a></li>
+                    <li><a href="#followed-8" class="playlist-item">Electronic Mix</a></li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content" role="main">
+            <!-- Content Header -->
+            <header class="content-header">
+                <nav class="filter-nav" aria-label="Filtros de conteúdo">
+                    <button type="button" class="filter-btn active" data-filter="all">
+                        Tudo
+                    </button>
+                    <button type="button" class="filter-btn" data-filter="playlists">
+                        Playlists
+                    </button>
+                    <button type="button" class="filter-btn" data-filter="podcasts">
+                        Podcasts
+                    </button>
+                    <button type="button" class="filter-btn" data-filter="artists">
+                        Artistas
+                    </button>
+                    <button type="button" class="filter-btn" data-filter="albums">
+                        Álbuns
+                    </button>
+                    <button type="button" class="filter-btn" data-filter="genres">
+                        Gêneros
+                    </button>
+                </nav>
+
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" alt="Foto de perfil de Emily Adams" class="profile-avatar" width="36" height="36" loading="lazy">
+                    <span class="profile-name">Emily Adams</span>
+                    <button type="button" class="profile-dropdown" aria-label="Menu do usuário" aria-expanded="false">
+                        <span class="material-icons" aria-hidden="true">expand_more</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Featured Section -->
+            <section class="featured-section">
+                <div class="featured-content">
+                    <h2 class="featured-title">Bem-vinda de volta!</h2>
+                    <p class="featured-subtitle">Continue ouvindo suas músicas favoritas ou descubra algo novo</p>
+                    <button class="featured-button">
+                        <span class="material-icons">play_arrow</span>
+                        Continuar ouvindo
+                    </button>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">50M+</div>
+                    <div class="stat-label">Músicas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2M+</div>
+                    <div class="stat-label">Podcasts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100K+</div>
+                    <div class="stat-label">Artistas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Streaming</div>
+                </div>
+            </section>
+
+            <!-- Quick Access Section -->
+            <section class="section" aria-labelledby="quick-access-heading">
+                <header class="section-header">
+                    <div>
+                        <h2 id="quick-access-heading" class="section-title">Acesso Rápido</h2>
+                        <p class="section-subtitle">Suas músicas e playlists mais tocadas</p>
+                    </div>
+                </header>
+                <div class="grid">
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <div class="liked-songs-cover">
+                                <span class="material-icons">favorite</span>
+                            </div>
+                            <button class="play-button" aria-label="Reproduzir Liked Songs">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Liked Songs</h3>
+                            <p class="card-description">247 músicas curtidas</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop" alt="Capa da playlist Daily Mix 1" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Daily Mix 1">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Daily Mix 1</h3>
+                            <p class="card-description">Gene Evaro Jr, Thifany Kauany, Wardell</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop" alt="Capa da playlist Discover Weekly" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Discover Weekly">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Discover Weekly</h3>
+                            <p class="card-description">Sua mixtape semanal personalizada</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop" alt="Capa da playlist Release Radar" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Release Radar">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Release Radar</h3>
+                            <p class="card-description">Novos lançamentos para você</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop" alt="Capa da playlist Focus Flow" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Focus Flow">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Focus Flow</h3>
+                            <p class="card-description">Música para concentração e produtividade</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop" alt="Capa da playlist Workout Energy" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Workout Energy">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Workout Energy</h3>
+                            <p class="card-description">Energia máxima para seus treinos</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Genres Section -->
+            <section class="section" aria-labelledby="genres-heading">
+                <header class="section-header">
+                    <div>
+                        <h2 id="genres-heading" class="section-title">Explorar Gêneros</h2>
+                        <p class="section-subtitle">Descubra música por gênero</p>
+                    </div>
+                </header>
+                <div class="grid">
+                    <article class="genre-card rock" role="gridcell" tabindex="0">
+                        <h3>Rock</h3>
+                    </article>
+                    <article class="genre-card pop" role="gridcell" tabindex="0">
+                        <h3>Pop</h3>
+                    </article>
+                    <article class="genre-card electronic" role="gridcell" tabindex="0">
+                        <h3>Eletrônica</h3>
+                    </article>
+                    <article class="genre-card jazz" role="gridcell" tabindex="0">
+                        <h3>Jazz</h3>
+                    </article>
+                    <article class="genre-card classical" role="gridcell" tabindex="0">
+                        <h3>Clássica</h3>
+                    </article>
+                    <article class="genre-card hip-hop" role="gridcell" tabindex="0">
+                        <h3>Hip Hop</h3>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Top Artists Section -->
+            <section class="section" aria-labelledby="top-artists-heading">
+                <header class="section-header">
+                    <div>
+                        <h2 id="top-artists-heading" class="section-title">Artistas em Alta</h2>
+                        <p class="section-subtitle">Os artistas mais ouvidos do momento</p>
+                    </div>
+                </header>
+                <div class="horizontal-scroll">
+                    <article class="card artist-card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop&crop=face" alt="Foto do artista Taylor Swift" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Taylor Swift">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Taylor Swift</h3>
+                            <p class="card-description">Artista</p>
+                        </div>
+                    </article>
+                    <article class="card artist-card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Foto do artista Ed Sheeran" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Ed Sheeran">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Ed Sheeran</h3>
+                            <p class="card-description">Artista</p>
+                        </div>
+                    </article>
+                    <article class="card artist-card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Foto do artista The Weeknd" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir The Weeknd">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">The Weeknd</h3>
+                            <p class="card-description">Artista</p>
+                        </div>
+                    </article>
+                    <article class="card artist-card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face" alt="Foto do artista Bruno Mars" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Bruno Mars">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Bruno Mars</h3>
+                            <p class="card-description">Artista</p>
+                        </div>
+                    </article>
+                    <article class="card artist-card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face" alt="Foto do artista Dua Lipa" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Dua Lipa">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Dua Lipa</h3>
+                            <p class="card-description">Artista</p>
+                        </div>
+                    </article>
+                    <article class="card artist-card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face" alt="Foto do artista Post Malone" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Post Malone">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Post Malone</h3>
+                            <p class="card-description">Artista</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Rock Legends Section -->
+            <section class="section" aria-labelledby="rock-legends-heading">
+                <header class="section-header">
+                    <div>
+                        <h2 id="rock-legends-heading" class="section-title">Lendas do Rock</h2>
+                        <p class="section-subtitle">Os maiores nomes do rock de todos os tempos</p>
+                    </div>
+                    <div class="section-controls">
+                        <button class="filter-btn">Ver todos</button>
+                    </div>
+                </header>
+                <div class="grid">
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/pt/7/77/Slipknot_-_Iowa.jpg" alt="Capa do álbum Iowa - Slipknot" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Slipknot">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Slipknot</h3>
+                            <p class="card-description">Duality, Psychosocial, Before I Forget</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://i.scdn.co/image/ab6761610000e5eb50defaf9fc059a1efc541f4c" alt="Foto da banda Guns N' Roses" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Guns N' Roses">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Guns N' Roses</h3>
+                            <p class="card-description">Sweet Child O' Mine, November Rain</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://m.media-amazon.com/images/I/81Guo2jMPGL._AC_UF1000,1000_QL80_.jpg" alt="Capa do álbum Master of Puppets - Metallica" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Metallica">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Metallica</h3>
+                            <p class="card-description">Enter Sandman, Nothing Else Matters</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/0/04/Queen_The_Greatest_Hits.png" alt="Capa do álbum Greatest Hits - Queen" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Queen">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Queen</h3>
+                            <p class="card-description">Bohemian Rhapsody, Don't Stop Me Now</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/9/92/ACDC_Back_in_Black.png" alt="Capa do álbum Back in Black - AC/DC" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir AC/DC">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">AC/DC</h3>
+                            <p class="card-description">Back In Black, Highway to Hell</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Led_Zeppelin_-_Led_Zeppelin_IV.jpg" alt="Capa do álbum Led Zeppelin IV" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Led Zeppelin">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Led Zeppelin</h3>
+                            <p class="card-description">Stairway to Heaven, Immigrant Song</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Rammstein_-_Mutter.png" alt="Capa do álbum Mutter - Rammstein" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Rammstein">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Rammstein</h3>
+                            <p class="card-description">Du Hast, Sonne, Ich Will</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/51/Pink_Floyd_-_The_Dark_Side_of_the_Moon.png" alt="Capa do álbum The Dark Side of the Moon - Pink Floyd" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Pink Floyd">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Pink Floyd</h3>
+                            <p class="card-description">Comfortably Numb, Wish You Were Here</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg" alt="Capa do álbum Abbey Road - The Beatles" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir The Beatles">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">The Beatles</h3>
+                            <p class="card-description">Come Together, Here Comes the Sun</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/f/f6/The_Rolling_Stones_-_Sticky_Fingers.png" alt="Capa do álbum Sticky Fingers - The Rolling Stones" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir The Rolling Stones">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">The Rolling Stones</h3>
+                            <p class="card-description">Paint It Black, Satisfaction</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/d/dc/Black_Sabbath_Vol_4.jpg" alt="Capa do álbum Vol. 4 - Black Sabbath" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Black Sabbath">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Black Sabbath</h3>
+                            <p class="card-description">Paranoid, Iron Man</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/1/1b/Deep_Purple_-_Machine_Head.jpg" alt="Capa do álbum Machine Head - Deep Purple" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Deep Purple">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Deep Purple</h3>
+                            <p class="card-description">Smoke on the Water, Highway Star</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- New Releases Section -->
+            <section class="section" aria-labelledby="new-releases-heading">
+                <header class="section-header">
+                    <div>
+                        <h2 id="new-releases-heading" class="section-title">Novos Lançamentos</h2>
+                        <p class="section-subtitle">Os últimos hits que chegaram à plataforma</p>
+                    </div>
+                    <div class="section-controls">
+                        <button class="filter-btn">Ver todos</button>
+                    </div>
+                </header>
+                <div class="horizontal-scroll">
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop" alt="Novo álbum 2024" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir novo álbum">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Midnight Dreams</h3>
+                            <p class="card-description">Luna Rodriguez • Álbum • 2024</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop" alt="Single novo" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir single novo">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Electric Nights</h3>
+                            <p class="card-description">Neon Pulse • Single • 2024</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop" alt="EP novo" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir EP novo">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Summer Vibes EP</h3>
+                            <p class="card-description">Coastal Waves • EP • 2024</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop" alt="Colaboração nova" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir colaboração">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Together We Rise</h3>
+                            <p class="card-description">Various Artists • Compilação • 2024</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop" alt="Remix novo" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir remix">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Starlight (Remix)</h3>
+                            <p class="card-description">DJ Phoenix • Remix • 2024</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Podcasts Section -->
+            <section class="section" aria-labelledby="podcasts-heading">
+                <header class="section-header">
+                    <div>
+                        <h2 id="podcasts-heading" class="section-title">Podcasts Populares</h2>
+                        <p class="section-subtitle">Conteúdo falado que você vai adorar</p>
+                    </div>
+                    <div class="section-controls">
+                        <button class="filter-btn">Ver todos</button>
+                    </div>
+                </header>
+                <div class="horizontal-scroll">
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=400&fit=crop" alt="Podcast Tech Talk" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Tech Talk">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Tech Talk Brasil</h3>
+                            <p class="card-description">Tecnologia e inovação • Semanal</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=400&fit=crop" alt="Podcast Música e Vida" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Música e Vida">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Música e Vida</h3>
+                            <p class="card-description">Histórias de artistas • Diário</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=400&h=400&fit=crop" alt="Podcast Mindfulness" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Mindfulness">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Mindfulness Daily</h3>
+                            <p class="card-description">Meditação e bem-estar • Diário</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop" alt="Podcast Empreendedorismo" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Empreendedorismo">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Empreende Aí</h3>
+                            <p class="card-description">Negócios e startups • Semanal</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Recently Played Section -->
+            <section class="section" aria-labelledby="recently-played-heading">
+                <header class="section-header">
+                    <div>
+                        <h2 id="recently-played-heading" class="section-title">Tocadas Recentemente</h2>
+                        <p class="section-subtitle">Continue de onde parou</p>
+                    </div>
+                    <div class="section-controls">
+                        <button class="filter-btn">Limpar histórico</button>
+                    </div>
+                </header>
+                <div class="horizontal-scroll">
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop" alt="Última música tocada" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Continuar reproduzindo">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Domestic Sweater</h3>
+                            <p class="card-description">Wardell • Tocada há 2 min</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop" alt="Playlist recente" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir playlist">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Chill Vibes</h3>
+                            <p class="card-description">Sua playlist • Tocada há 1 hora</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop" alt="Álbum recente" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir álbum">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Midnight Memories</h3>
+                            <p class="card-description">One Direction • Tocado ontem</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop" alt="Artista recente" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir artista">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Imagine Dragons</h3>
+                            <p class="card-description">Artista • Tocado há 2 dias</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Made For You Section -->
+            <section class="section" aria-labelledby="made-for-you-heading">
+                <header class="section-header">
+                    <div>
+                        <h2 id="made-for-you-heading" class="section-title">Feito Para Você</h2>
+                        <p class="section-subtitle">Playlists personalizadas baseadas no seu gosto musical</p>
+                    </div>
+                </header>
+                <div class="grid">
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop" alt="Daily Mix 1" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Daily Mix 1">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Daily Mix 1</h3>
+                            <p class="card-description">Pop, Indie Pop, Alternative</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop" alt="Daily Mix 2" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Daily Mix 2">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Daily Mix 2</h3>
+                            <p class="card-description">Rock, Classic Rock, Hard Rock</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop" alt="Daily Mix 3" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Daily Mix 3">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Daily Mix 3</h3>
+                            <p class="card-description">Electronic, House, Techno</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop" alt="Daily Mix 4" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Daily Mix 4">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Daily Mix 4</h3>
+                            <p class="card-description">Hip Hop, Rap, R&B</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop" alt="Daily Mix 5" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Daily Mix 5">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Daily Mix 5</h3>
+                            <p class="card-description">Jazz, Blues, Soul</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop" alt="Daily Mix 6" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir Daily Mix 6">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Daily Mix 6</h3>
+                            <p class="card-description">Classical, Orchestral, Piano</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Mood & Activity Section -->
+            <section class="section" aria-labelledby="mood-activity-heading">
+                <header class="section-header">
+                    <div>
+                        <h2 id="mood-activity-heading" class="section-title">Humor & Atividade</h2>
+                        <p class="section-subtitle">Música para cada momento do seu dia</p>
+                    </div>
+                </header>
+                <div class="grid">
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop" alt="Música para relaxar" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir música relaxante">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Relaxar</h3>
+                            <p class="card-description">Música calma para desestressar</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop" alt="Música para treinar" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir música para treino">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Treino</h3>
+                            <p class="card-description">Energia para seus exercícios</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Música para trabalhar" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir música para trabalho">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Foco</h3>
+                            <p class="card-description">Concentração máxima</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop" alt="Música para festa" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir música para festa">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Festa</h3>
+                            <p class="card-description">Hits para animar a galera</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop" alt="Música para dormir" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir música para dormir">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Dormir</h3>
+                            <p class="card-description">Sons suaves para uma boa noite</p>
+                        </div>
+                    </article>
+                    <article class="card" role="gridcell" tabindex="0">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop" alt="Música para viajar" class="card-image" width="200" height="200" loading="lazy">
+                            <button class="play-button" aria-label="Reproduzir música para viagem">
+                                <span class="material-icons">play_arrow</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Viagem</h3>
+                            <p class="card-description">Trilha sonora perfeita para a estrada</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Audio Player -->
+    <footer class="player-bar" role="contentinfo" aria-label="Controles do player de música">
+        <div class="track-info">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=100&h=100&fit=crop" alt="Capa do álbum - Domestic Sweater" class="track-image" width="48" height="48" loading="lazy">
+            <div class="track-details">
+                <div class="track-title" id="current-track-title">Domestic Sweater</div>
+                <div class="track-artist" id="current-track-artist">Wardell</div>
+            </div>
+            <button type="button" class="like-button" aria-label="Curtir música atual" aria-pressed="false">
+                <span class="material-icons">favorite_border</span>
+            </button>
+        </div>
+
+        <div class="player-controls" role="group" aria-label="Controles de reprodução">
+            <button type="button" class="control-btn shuffle-btn" aria-label="Ativar modo aleatório" aria-pressed="false">
+                <span class="material-icons">shuffle</span>
+            </button>
+            <button type="button" class="control-btn" aria-label="Música anterior">
+                <span class="material-icons">skip_previous</span>
+            </button>
+            <button type="button" class="control-btn play-btn" aria-label="Reproduzir/Pausar" aria-pressed="false">
+                <span class="material-icons">play_arrow</span>
+            </button>
+            <button type="button" class="control-btn" aria-label="Próxima música">
+                <span class="material-icons">skip_next</span>
+            </button>
+            <button type="button" class="control-btn repeat-btn" aria-label="Repetir" aria-pressed="false">
+                <span class="material-icons">repeat</span>
+            </button>
+        </div>
+
+        <div class="progress-section">
+            <time class="time-current" aria-label="Tempo atual">1:45</time>
+            <div class="progress-bar" role="slider" aria-label="Progresso da música" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" tabindex="0">
+                <div class="progress-fill" style="width: 40%"></div>
+            </div>
+            <time class="time-total" aria-label="Duração total">4:25</time>
+        </div>
+
+        <div class="volume-controls">
+            <button type="button" class="control-btn volume-btn" aria-label="Controle de volume">
+                <span class="material-icons">volume_up</span>
+            </button>
+            <div class="volume-bar" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" tabindex="0">
+                <div class="volume-fill" style="width: 80%"></div>
+            </div>
+            <button type="button" class="control-btn" aria-label="Modo picture-in-picture">
+                <span class="material-icons">picture_in_picture_alt</span>
+            </button>
+            <button type="button" class="control-btn" aria-label="Fila de reprodução">
+                <span class="material-icons">queue_music</span>
+            </button>
+            <button type="button" class="control-btn" aria-label="Conectar dispositivo">
+                <span class="material-icons">devices</span>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" aria-hidden="true">
+        <div class="loading-spinner" role="status" aria-label="Carregando...">
+            <span class="sr-only">Carregando...</span>
+        </div>
+    </div>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" aria-hidden="true"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Enhanced JavaScript functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+
+            if (mobileMenuToggle && sidebar) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    const isOpen = sidebar.classList.contains('open');
+                    
+                    if (isOpen) {
+                        sidebar.classList.remove('open');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        if (mobileOverlay) mobileOverlay.style.display = 'none';
+                    } else {
+                        sidebar.classList.add('open');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                        if (mobileOverlay) mobileOverlay.style.display = 'block';
+                    }
+                });
+            }
+
+            // Close mobile menu when clicking overlay
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', function() {
+                    sidebar.classList.remove('open');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    mobileOverlay.style.display = 'none';
+                });
+            }
+
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Here you would implement actual filtering logic
+                    console.log('Filter selected:', this.textContent);
+                });
+            });
+
+            // Play button functionality
+            const playButtons = document.querySelectorAll('.play-button');
+            const mainPlayButton = document.querySelector('.play-btn');
+            let isPlaying = false;
+
+            playButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Update main player
+                    if (mainPlayButton) {
+                        const icon = mainPlayButton.querySelector('.material-icons');
+                        icon.textContent = 'pause';
+                        mainPlayButton.setAttribute('aria-pressed', 'true');
+                    }
+                    
+                    isPlaying = true;
+                    console.log('Playing:', this.getAttribute('aria-label'));
+                });
+            });
+
+            // Main play/pause button
+            if (mainPlayButton) {
+                mainPlayButton.addEventListener('click', function() {
+                    const icon = this.querySelector('.material-icons');
+                    const isCurrentlyPlaying = this.getAttribute('aria-pressed') === 'true';
+                    
+                    if (isCurrentlyPlaying) {
+                        icon.textContent = 'play_arrow';
+                        this.setAttribute('aria-pressed', 'false');
+                        isPlaying = false;
+                    } else {
+                        icon.textContent = 'pause';
+                        this.setAttribute('aria-pressed', 'true');
+                        isPlaying = true;
+                    }
+                });
+            }
+
+            // Like button functionality
+            const likeButtons = document.querySelectorAll('.like-button');
+            likeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const icon = this.querySelector('.material-icons');
+                    const isLiked = this.getAttribute('aria-pressed') === 'true';
+                    
+                    if (isLiked) {
+                        icon.textContent = 'favorite_border';
+                        this.setAttribute('aria-pressed', 'false');
+                    } else {
+                        icon.textContent = 'favorite';
+                        this.setAttribute('aria-pressed', 'true');
+                    }
+                });
+            });
+
+            // Progress bar functionality
+            const progressBar = document.querySelector('.progress-bar');
+            const progressFill = document.querySelector('.progress-fill');
+            
+            if (progressBar && progressFill) {
+                progressBar.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const percent = (e.clientX - rect.left) / rect.width * 100;
+                    progressFill.style.width = percent + '%';
+                    this.setAttribute('aria-valuenow', Math.round(percent));
+                });
+            }
+
+            // Volume bar functionality
+            const volumeBar = document.querySelector('.volume-bar');
+            const volumeFill = document.querySelector('.volume-fill');
+            const volumeButton = document.querySelector('.volume-btn');
+            
+            if (volumeBar && volumeFill) {
+                volumeBar.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const percent = (e.clientX - rect.left) / rect.width * 100;
+                    volumeFill.style.width = percent + '%';
+                    this.setAttribute('aria-valuenow', Math.round(percent));
+                    
+                    // Update volume icon
+                    if (volumeButton) {
+                        const icon = volumeButton.querySelector('.material-icons');
+                        if (percent === 0) {
+                            icon.textContent = 'volume_off';
+                        } else if (percent < 50) {
+                            icon.textContent = 'volume_down';
+                        } else {
+                            icon.textContent = 'volume_up';
+                        }
+                    }
+                });
+            }
+
+            // Shuffle and repeat buttons
+            const shuffleButton = document.querySelector('.shuffle-btn');
+            const repeatButton = document.querySelector('.repeat-btn');
+            
+            if (shuffleButton) {
+                shuffleButton.addEventListener('click', function() {
+                    const isActive = this.getAttribute('aria-pressed') === 'true';
+                    this.setAttribute('aria-pressed', !isActive);
+                    this.style.color = !isActive ? 'var(--primary-color)' : '';
+                });
+            }
+            
+            if (repeatButton) {
+                repeatButton.addEventListener('click', function() {
+                    const isActive = this.getAttribute('aria-pressed') === 'true';
+                    this.setAttribute('aria-pressed', !isActive);
+                    this.style.color = !isActive ? 'var(--primary-color)' : '';
+                });
+            }
+
+            // Card hover effects
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-4px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.code === 'Space' && e.target === document.body) {
+                    e.preventDefault();
+                    if (mainPlayButton) {
+                        mainPlayButton.click();
+                    }
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Loading simulation
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            if (loadingOverlay) {
+                // Simulate loading for demo purposes
+                setTimeout(() => {
+                    loadingOverlay.classList.remove('active');
+                }, 1000);
+            }
+
+            // Add animation classes to elements as they come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+
+            console.log('Vibe Tune initialized successfully!');
+        });
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            if ('performance' in window) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+            }
+        });
+    </script>
+
+    <style>
+        /* Additional mobile overlay styles */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            display: none;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Enhanced focus styles for better accessibility */
+        .card:focus-within {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Improved loading animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading-overlay.active .loading-spinner {
+            animation: spin 1s linear infinite, pulse 2s ease-in-out infinite;
+        }
+
+        /* Enhanced card animations */
+        .card {
+            transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Improved gradient overlays */
+        .genre-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+
+        .genre-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Enhanced typography */
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        /* Improved responsive grid */
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>
